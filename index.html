@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HARU SUSHI BAR | ฮารุ ซูชิบาร์ - อาหารญี่ปุ่นและซูชิสดใหม่สไตล์ A la Carte</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@400;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Kanit', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        jp: ['Noto Serif JP', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            gold: '#D4AF37',
+                            goldHover: '#c59f2e',
+                            dark: '#121316',
+                            card: '#1c1e24',
+                            red: '#E03E3E',
+                            salmon: '#FA7268',
+                            wood: '#A67C52',
+                            cream: '#FAF7F2'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        .wood-texture {
+            background-color: #16181D;
+            background-image: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.08) 0%, transparent 60%);
+        }
+        .text-gold-gradient {
+            background: linear-gradient(135deg, #F9E79F 0%, #D4AF37 50%, #AA7C11 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glass-nav {
+            background: rgba(18, 19, 22, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-gray-200 font-sans selection:bg-brand-gold selection:text-black">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-gradient-to-r from-red-950 via-red-900 to-red-950 text-amber-100 text-xs sm:text-sm py-2 px-4 text-center border-b border-red-800/40 flex items-center justify-center gap-2">
+        <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-red-600 text-white">PROMOTION</span>
+        <span>ปลาแซลมอนและฮามาจิสดส่งตรงจากญี่ปุ่นประจำสัปดาห์นี้ ลดพิเศษ 15% ทุกเมนูซาชิมิ</span>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-40 glass-nav border-b border-white/10 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-12 h-12 rounded-full border border-brand-gold/60 flex items-center justify-center bg-black/50 text-brand-gold shadow-lg shadow-black/60 group-hover:border-brand-gold transition-colors">
+                    <span class="font-jp text-xl font-bold">春</span>
+                </div>
+                <div>
+                    <div class="font-serif text-xl sm:text-2xl font-bold tracking-wider text-white flex items-center gap-2">
+                        HARU <span class="text-brand-gold font-sans font-light text-sm tracking-widest">SUSHI BAR</span>
+                    </div>
+                    <div class="text-[11px] text-gray-400 font-light tracking-wide">ฮารุ ซูชิบาร์ • A La Carte Japanese Cuisine</div>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-normal text-gray-300">
+                <a href="#home" class="hover:text-brand-gold transition-colors">หน้าแรก</a>
+                <a href="#menu" class="hover:text-brand-gold transition-colors">เมนู A la Carte</a>
+                <a href="#about" class="hover:text-brand-gold transition-colors">ความพิถีพิถัน</a>
+                <a href="#gallery" class="hover:text-brand-gold transition-colors">บรรยากาศร้าน</a>
+                <a href="#contact" class="hover:text-brand-gold transition-colors">ติดต่อ & ที่ตั้ง</a>
+            </nav>
+
+            <!-- Quick Action Buttons -->
+            <div class="hidden lg:flex items-center gap-3">
+                <a href="tel:0823456789" class="px-3.5 py-2 rounded-lg border border-gray-700 bg-white/5 hover:bg-white/10 text-white text-xs font-medium flex items-center gap-2 transition-all">
+                    <i class="fa-solid fa-phone text-brand-gold"></i>
+                    <span>082-345-6789</span>
+                </a>
+                <a href="https://line.me" target="_blank" class="px-4 py-2 rounded-lg bg-[#06C755] hover:bg-[#05b34c] text-white text-xs font-medium flex items-center gap-2 shadow-md shadow-[#06C755]/20 transition-all transform hover:-translate-y-0.5">
+                    <i class="fa-brands fa-line text-lg"></i>
+                    <span>ติดต่อ / จองโต๊ะ (LINE)</span>
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger Toggle -->
+            <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-white p-2 text-xl focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-dark/95 border-b border-gray-800 px-6 py-6 space-y-4">
+            <a href="#home" class="block py-2 text-gray-300 hover:text-brand-gold border-b border-gray-800/60 mobile-nav-link">หน้าแรก</a>
+            <a href="#menu" class="block py-2 text-gray-300 hover:text-brand-gold border-b border-gray-800/60 mobile-nav-link">เมนู A la Carte</a>
+            <a href="#about" class="block py-2 text-gray-300 hover:text-brand-gold border-b border-gray-800/60 mobile-nav-link">ความพิถีพิถัน</a>
+            <a href="#gallery" class="block py-2 text-gray-300 hover:text-brand-gold border-b border-gray-800/60 mobile-nav-link">บรรยากาศร้าน</a>
+            <a href="#contact" class="block py-2 text-gray-300 hover:text-brand-gold border-b border-gray-800/60 mobile-nav-link">ติดต่อ & ที่ตั้ง</a>
+            <div class="pt-2 flex flex-col gap-3">
+                <a href="https://line.me" target="_blank" class="w-full py-2.5 rounded-lg bg-[#06C755] text-white text-center text-sm font-medium flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-line text-lg"></i> แอด LINE จองโต๊ะ (@harusushi)
+                </a>
+                <a href="tel:0823456789" class="w-full py-2.5 rounded-lg border border-gray-700 bg-white/5 text-white text-center text-sm font-medium flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-phone text-brand-gold"></i> โทร 082-345-6789
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-[85vh] flex items-center justify-center overflow-hidden wood-texture">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=2000&q=80" 
+                 alt="Premium Sushi Board" 
+                 class="w-full h-full object-cover object-center opacity-30 mix-blend-luminosity scale-105 transform hover:scale-100 transition-transform duration-1000 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/70 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-dark via-brand-dark/50 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-gold/10 border border-brand-gold/30 text-brand-gold text-xs sm:text-sm font-medium mb-6 backdrop-blur-sm">
+                <span class="w-2 h-2 rounded-full bg-brand-gold animate-pulse"></span>
+                สัมผัสรสชาติความสดแท้ สไตล์โตเกียวดั้งเดิม
+            </div>
+            
+            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight mb-6">
+                ซูชิ A la Carte เกรดพรีเมียม <br class="hidden sm:block">
+                <span class="text-gold-gradient font-serif">สดใหม่ทุกคำ ในราคาที่คุณเข้าถึงได้</span>
+            </h1>
+
+            <p class="max-w-2xl mx-auto text-gray-300 text-sm sm:text-base lg:text-lg font-light leading-relaxed mb-10">
+                คัดสรรปลาสดคุณภาพดีส่งตรงจากตลาดปลาญี่ปุ่น ปรุงด้วยข้าวซูชิสูตรหมักน้ำส้มสายชูแดงดั้งเดิม 
+                พร้อมเสิร์ฟทั้งแบบนั่งชิลที่เคาน์เตอร์บาร์ หรือสั่งกลับบ้านอย่างสะดวกสบาย
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto">
+                <a href="#menu" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-brand-gold hover:bg-brand-goldHover text-black font-semibold text-sm transition-all duration-300 shadow-lg shadow-brand-gold/25 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-utensils"></i> ดูเมนูอาหารทั้งหมด
+                </a>
+                <a href="https://line.me" target="_blank" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-[#06C755] hover:bg-[#05b34c] text-white font-medium text-sm transition-all duration-300 shadow-lg shadow-[#06C755]/20 flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-line text-lg"></i> แอด LINE จองโต๊ะ / สั่งเลย
+                </a>
+            </div>
+
+            <!-- Highlights Badges -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 pt-10 border-t border-white/10 text-left">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-brand-gold text-lg">
+                        <i class="fa-solid fa-fish-fins"></i>
+                    </div>
+                    <div>
+                        <div class="text-white text-xs font-semibold">ปลาสดส่งตรงทุกวัน</div>
+                        <div class="text-gray-400 text-[11px]">จากตลาดปลาชั้นนำ</div>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-brand-gold text-lg">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <div>
+                        <div class="text-white text-xs font-semibold">ข้าวซูชิ Akasu</div>
+                        <div class="text-gray-400 text-[11px]">หมักน้ำส้มแดงหอมละมุน</div>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-brand-gold text-lg">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+                    <div>
+                        <div class="text-white text-xs font-semibold">ทำสดคำต่อคำ</div>
+                        <div class="text-gray-400 text-[11px]">ไม่ปั้นทิ้งไว้ล่วงหน้า</div>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-brand-gold text-lg">
+                        <i class="fa-solid fa-motorcycle"></i>
+                    </div>
+                    <div>
+                        <div class="text-white text-xs font-semibold">พร้อมส่ง Delivery</div>
+                        <div class="text-gray-400 text-[11px]">กล่องรักษาความเย็นพิเศษ</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-20 bg-[#16181e] relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-brand-gold text-xs font-semibold tracking-widest uppercase">OUR A LA CARTE SELECTIONS</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mt-1 mb-4 font-serif">เมนูอาหารประจำร้าน</h2>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    เลือกสรรความอร่อยได้ตามใจชอบ ไม่ว่าจะเป็นซูชิคำเดี่ยว ซาชิมิรวมเซ็ต หรือข้าวหน้าดงบุริปรุงพิเศษ
+                </p>
+                <div class="w-16 h-0.5 bg-brand-gold mx-auto mt-4"></div>
+            </div>
+
+            <!-- Category Filter Tabs -->
+            <div class="flex flex-wrap items-center justify-center gap-2 mb-10 text-xs sm:text-sm">
+                <button class="menu-tab active px-5 py-2.5 rounded-full transition-all border border-brand-gold bg-brand-gold text-black font-semibold shadow-md shadow-brand-gold/20" data-category="all">
+                    ทั้งหมด (All)
+                </button>
+                <button class="menu-tab px-5 py-2.5 rounded-full transition-all border border-gray-700 bg-brand-card text-gray-300 hover:text-white hover:border-gray-500" data-category="nigiri">
+                    ซูชินิกิริ (Nigiri)
+                </button>
+                <button class="menu-tab px-5 py-2.5 rounded-full transition-all border border-gray-700 bg-brand-card text-gray-300 hover:text-white hover:border-gray-500" data-category="sashimi">
+                    ซาชิมิสด (Sashimi)
+                </button>
+                <button class="menu-tab px-5 py-2.5 rounded-full transition-all border border-gray-700 bg-brand-card text-gray-300 hover:text-white hover:border-gray-500" data-category="rolls">
+                    โรล & มากิ (Rolls)
+                </button>
+                <button class="menu-tab px-5 py-2.5 rounded-full transition-all border border-gray-700 bg-brand-card text-gray-300 hover:text-white hover:border-gray-500" data-category="donburi">
+                    ข้าวหน้าดงบุริ (Donburi)
+                </button>
+                <button class="menu-tab px-5 py-2.5 rounded-full transition-all border border-gray-700 bg-brand-card text-gray-300 hover:text-white hover:border-gray-500" data-category="appetizers">
+                    ทานเล่น & ซุป (Appetizer)
+                </button>
+            </div>
+
+            <!-- Menu Grid Container -->
+            <div id="menu-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+
+                <!-- Item 1: Salmon Nigiri -->
+                <div class="menu-item bg-brand-card border border-white/5 rounded-2xl overflow-hidden hover:border-brand-gold/40 transition-all duration-300 group hover:-translate-y-1 shadow-lg" data-category="nigiri">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1611143669185-af224c5e3252?auto=format&fit=crop&w=800&q=80" 
+                             alt="Salmon Nigiri" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 left-3 bg-red-600/90 backdrop-blur-sm text-white text-[11px] font-medium px-2.5 py-1 rounded-full">
+                            ยอดนิยม
+                        </span>
+                        <span class="absolute bottom-3 right-3 bg-black/70 backdrop-blur-sm text-brand-gold text-xs font-semibold px-2 py-0.5 rounded border border-brand-gold/30">
+                            2 คำ / ที่
+                        </span>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start gap-2 mb-1.5">
+                            <h3 class="font-bold text-white text-base group-hover:text-brand-gold transition-colors">ซูชิแซลมอนสด</h3>
+                            <span class="text-brand-gold font-bold text-base whitespace-nowrap">฿85</span>
+                        </div>
+                        <div class="text-xs text-gray-400 font-jp mb-2">サーモンにぎり (Salmon Nigiri)</div>
+                        <p class="text-xs text-gray-400 line-clamp-2 mb-4">เนื้อปลาแซลมอนนอร์เวย์สดนำเข้า ลายไขมันสวย เนื้อนุ่มละลายในปาก ทานคู่กับวาซาบิสด</p>
+                        <button onclick="openMenuModal('ซูชิแซลมอนสด', '฿85', 'サーモンにぎり (Salmon Nigiri)', 'เนื้อปลาแซลมอนนอร์เวย์สดนำเข้า ชิ้นหนากำลังดี ลายไขมันแทรกสวยงาม ทานคู่กับข้าวซูชิหมักน้ำส้มสายชูแดงสูตรพิเศษของทางร้าน เสิร์ฟ 2 คำต่อที่', 'https://images.unsplash.com/photo-1611143669185-af224c5e3252?auto=format&fit=crop&w=800&q=80')" class="w-full py-2 rounded-lg bg-white/5 hover:bg-brand-gold hover:text-black text-gray-300 text-xs font-medium transition-colors border border-white/10 flex items-center justify-center gap-1.5">
+                            <i class="fa-regular fa-eye"></i> ดูรายละเอียด
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Item 2: Otoro Nigiri -->
+                <div class="menu-item bg-brand-card border border-white/5 rounded-2xl overflow-hidden hover:border-brand-gold/40 transition-all duration-300 group hover:-translate-y-1 shadow-lg" data-category="nigiri">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1534482421-64566f976cfa?auto=format&fit=crop&w=800&q=80" 
+                             alt="Otoro Nigiri" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 left-3 bg-brand-gold text-black text-[11px] font-bold px-2.5 py-1 rounded-full shadow-md">
+                            Chef's Special
+                        </span>
+                        <span class="absolute bottom-3 right-3 bg-black/70 backdrop-blur-sm text-brand-gold text-xs font-semibold px-2 py-0.5 rounded border border-brand-gold/30">
+                            1 คำ / ที่
+                        </span>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start gap-2 mb-1.5">
+                            <h3 class="font-bold text-white text-base group-hover:text-brand-gold transition-colors">ซูชิโอโทโร่ พรีเมียม</h3>
+                            <span class="text-brand-gold font-bold text-base whitespace-nowrap">฿280</span>
+                        </div>
+                        <div class="text-xs text-gray-400 font-jp mb-2">大トロにぎり (Premium Otoro)</div>
+                        <p class="text-xs text-gray-400 line-clamp-2 mb-4">เนื้อส่วนท้องของปลาทูน่าครีบน้ำเงิน ลายหินอ่อนละเอียด หวานมันละลายในปากอย่างแท้จริง</p>
+                        <button onclick="openMenuModal('ซูชิโอโทโร่ พรีเมียม', '฿280', '大トロにぎり (Premium Otoro)', 'คัดเฉพาะเนื้อส่วนท้องปลาทูน่าสายพันธุ์บลูฟิน (Hon Maguro) แท้ นำเข้าโดยตรง ลายไขมันแทรกแน่นหนา นุ่มละลายเหมือนไอศกรีม ทานกับโชยุเคี่ยวสูตรเฉพาะ', 'https://images.unsplash.com/photo-1534482421-64566f976cfa?auto=format&fit=crop&w=800&q=80')" class="w-full py-2 rounded-lg bg-white/5 hover:bg-brand-gold hover:text-black text-gray-300 text-xs font-medium transition-colors border border-white/10 flex items-center justify-center gap-1.5">
+                            <i class="fa-regular fa-eye"></i> ดูรายละเอียด
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Item 3: Sashimi Moriawase -->
+                <div class="menu-item bg-brand-card border border-white/5 rounded-2xl overflow-hidden hover:border-brand-gold/40 transition-all duration-300 group hover:-translate-y-1 shadow-lg" data-category="sashimi">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&q=80" 
+                             alt="Sashimi Moriawase" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 left-3 bg-red-600/90 backdrop-blur-sm text-white text-[11px] font-medium px-2.5 py-1 rounded-full">
+                            ซิกเนเจอร์
+                        </span>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start gap-2 mb-1.5">
+                            <h3 class="font-bold text-white text-base group-hover:text-brand-gold transition-colors">ซาชิมิรวมเซ็ต 5 ชนิด</h3>
+                            <span class="text-brand-gold font-bold text-base whitespace-nowrap">฿690</span>
+                        </div>
+                        <div class="text-xs text-gray-400 font-jp mb-2">刺身盛り合わせ 5品 (Sashimi Set 5)</div>
+                        <p class="text-xs text-gray-400 line-clamp-2 mb-4">ประกอบด้วย แซลมอน, ฮามาจิ, มากุโระอากามิ, หอยโฮตาเตะ และหมึกทาโกะ เสิร์ฟบนถาดน้ำแข็ง</p>
+                        <button onclick="openMenuModal('ซาชิมิรวมเซ็ต 5 ชนิด', '฿690', '刺身盛り合わせ 5品', 'ชุดซาชิมิรวมระดับพรีเมียม สดใหม่ส่งตรงจากญี่ปุ่น 5 ชนิด รวมทั้งสิ้น 15 ชิ้นใหญ่ เสิร์ฟบนถาดน้ำแข็งเกล็ดรักษาความเย็น พร้อมวาซาบิสดและไชเท้าซอยกรอบ', 'https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&q=80')" class="w-full py-2 rounded-lg bg-white/5 hover:bg-brand-gold hover:text-black text-gray-300 text-xs font-medium transition-colors border border-white/10 flex items-center justify-center gap-1.5">
+                            <i class="fa-regular fa-eye"></i> ดูรายละเอียด
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Item 4: Hotate Foie Gras Roll -->
+                <div class="menu-item bg-brand-card border border-white/5 rounded-2xl overflow-hidden hover:border-brand-gold/40 transition-all duration-300 group hover:-translate-y-1 shadow-lg" data-category="rolls">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?auto=format&fit=crop&w=800&q=80" 
+                             alt="Dragon Roll" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 left-3 bg-brand-gold text-black text-[11px] font-bold px-2.5 py-1 rounded-full shadow-md">
+                            แนะนำ
+                        </span>
+                        <span class="absolute bottom-3 right-3 bg-black/70 backdrop-blur-sm text-brand-gold text-xs font-semibold px-2 py-0.5 rounded border border-brand-gold/30">
+                            6 ชิ้น / จาน
+                        </span>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start gap-2 mb-1.5">
+                            <h3 class="font-bold text-white text-base group-hover:text-brand-gold transition-colors">ฮารุ ซิกเนเจอร์โรล</h3>
+                            <span class="text-brand-gold font-bold text-base whitespace-nowrap">฿390</span>
+                        </div>
+                        <div class="text-xs text-gray-400 font-jp mb-2">ハル シグネチャーロール (Haru Roll)</div>
+                        <p class="text-xs text-gray-400 line-clamp-2 mb-4">โรลไส้กุ้งเทมปุระกรอบ ท็อปด้วยแซลมอนเบิร์นไฟราดซอสฟัวกราส์และไข่ปลาแซลมอน</p>
+                        <button onclick="openMenuModal('ฮารุ ซิกเนเจอร์โรล', '฿390', 'ハル シグネチャーロール', 'ซิกเนเจอร์โรลสูตรลับของร้าน สอดไส้กุ้งเทมปุระทอดกรอบและอะโวคาโด ท็อปปิ้งด้วยแซลมอนเบิร์นไฟหอมกรุ่น ราดซอสฟัวกราส์เคี่ยวสูตรเข้มข้น โรยไข่ปลาแซลมอนอิคุระกรุบกรอบ', 'https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?auto=format&fit=crop&w=800&q=80')" class="w-full py-2 rounded-lg bg-white/5 hover:bg-brand-gold hover:text-black text-gray-300 text-xs font-medium transition-colors border border-white/10 flex items-center justify-center gap-1.5">
+                            <i class="fa-regular fa-eye"></i> ดูรายละเอียด
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Item 5: Salmon Ikura Don -->
+                <div class="menu-item bg-brand-card border border-white/5 rounded-2xl overflow-hidden hover:border-brand-gold/40 transition-all duration-300 group hover:-translate-y-1 shadow-lg" data-category="donburi">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80" 
+                             alt="Salmon Donburi" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start gap-2 mb-1.5">
+                            <h3 class="font-bold text-white text-base group-hover:text-brand-gold transition-colors">ข้าวหน้าแซลมอน & อิคุระ</h3>
+                            <span class="text-brand-gold font-bold text-base whitespace-nowrap">฿350</span>
+                        </div>
+                        <div class="text-xs text-gray-400 font-jp mb-2">サーモンいくら丼 (Salmon Ikura Don)</div>
+                        <p class="text-xs text-gray-400 line-clamp-2 mb-4">ข้าวญี่ปุ่นปรุงรส โปะด้วยแซลมอนสดหั่นหนาจุใจ และไข่ปลาแซลมอนหมักโชยุแท้</p>
+                        <button onclick="openMenuModal('ข้าวหน้าแซลมอน & อิคุระ', '฿350', 'サーモンいくら丼', 'เสิร์ฟพร้อมซุปมิโซะร้อนๆ และสลัดผักเคียง เนื้อแซลมอนสดหั่นชิ้นหนา 8-10 ชิ้น พร้อมไข่ปลาแซลมอนหมักโชยุสูตรพิเศษของฮารุ', 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80')" class="w-full py-2 rounded-lg bg-white/5 hover:bg-brand-gold hover:text-black text-gray-300 text-xs font-medium transition-colors border border-white/10 flex items-center justify-center gap-1.5">
+                            <i class="fa-regular fa-eye"></i> ดูรายละเอียด
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Item 6: Wagyu Nigiri -->
+                <div class="menu-item bg-brand-card border border-white/5 rounded-2xl overflow-hidden hover:border-brand-gold/40 transition-all duration-300 group hover:-translate-y-1 shadow-lg" data-category="nigiri">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" 
+                             alt="Wagyu A5 Nigiri" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 left-3 bg-red-600/90 backdrop-blur-sm text-white text-[11px] font-medium px-2.5 py-1 rounded-full">
+                            เนื้อวากิว A5
+                        </span>
+                        <span class="absolute bottom-3 right-3 bg-black/70 backdrop-blur-sm text-brand-gold text-xs font-semibold px-2 py-0.5 rounded border border-brand-gold/30">
+                            1 คำ / ที่
+                        </span>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start gap-2 mb-1.5">
+                            <h3 class="font-bold text-white text-base group-hover:text-brand-gold transition-colors">ซูชิวากิว A5 เบิร์นไฟ</h3>
+                            <span class="text-brand-gold font-bold text-base whitespace-nowrap">฿190</span>
+                        </div>
+                        <div class="text-xs text-gray-400 font-jp mb-2">和牛A5にぎり (Wagyu A5 Nigiri)</div>
+                        <p class="text-xs text-gray-400 line-clamp-2 mb-4">เนื้อวากิวญี่ปุ่นคัดเกรด A5 เบิร์นไฟหอมกลิ่นควัน ท็อปด้วยกระเทียมกรอบและเกลือทรัฟเฟิล</p>
+                        <button onclick="openMenuModal('ซูชิวากิว A5 เบิร์นไฟ', '฿190', '和牛A5にぎり', 'เนื้อวัวญี่ปุ่นสายพันธุ์ขนดำเกรด A5 ลายไขมันสูงสุด เบิร์นไฟอ่อนๆ กลิ่นหอมมันเยิ้มละลายในปาก ปรุงรสด้วยเกลือทะเลดำและทรัฟเฟิลออยล์', 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80')" class="w-full py-2 rounded-lg bg-white/5 hover:bg-brand-gold hover:text-black text-gray-300 text-xs font-medium transition-colors border border-white/10 flex items-center justify-center gap-1.5">
+                            <i class="fa-regular fa-eye"></i> ดูรายละเอียด
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Item 7: Edamame & Miso Soup -->
+                <div class="menu-item bg-brand-card border border-white/5 rounded-2xl overflow-hidden hover:border-brand-gold/40 transition-all duration-300 group hover:-translate-y-1 shadow-lg" data-category="appetizers">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1558985254-27a406d64949?auto=format&fit=crop&w=800&q=80" 
+                             alt="Edamame" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start gap-2 mb-1.5">
+                            <h3 class="font-bold text-white text-base group-hover:text-brand-gold transition-colors">ถั่วแระญี่ปุ่นคั่วเกลือทะเล</h3>
+                            <span class="text-brand-gold font-bold text-base whitespace-nowrap">฿60</span>
+                        </div>
+                        <div class="text-xs text-gray-400 font-jp mb-2">枝豆 (Edamame)</div>
+                        <p class="text-xs text-gray-400 line-clamp-2 mb-4">ถั่วแระญี่ปุ่นสดต้มสุกกำลังดี คลุกเคล้าด้วยเกลือทะเลธรรมชาติ เคี้ยวเพลินเรียกน้ำย่อย</p>
+                        <button onclick="openMenuModal('ถั่วแระญี่ปุ่นคั่วเกลือทะเล', '฿60', '枝豆 (Edamame)', 'ถั่วแระญี่ปุ่นคัดฝักอวบ นำมาต้มสดและโรยเกลือสมุทรธรรมชาติ เหมาะทานเล่นคู่กับเครื่องดื่มเย็นๆ', 'https://images.unsplash.com/photo-1558985254-27a406d64949?auto=format&fit=crop&w=800&q=80')" class="w-full py-2 rounded-lg bg-white/5 hover:bg-brand-gold hover:text-black text-gray-300 text-xs font-medium transition-colors border border-white/10 flex items-center justify-center gap-1.5">
+                            <i class="fa-regular fa-eye"></i> ดูรายละเอียด
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Item 8: Spicy Salmon Salad -->
+                <div class="menu-item bg-brand-card border border-white/5 rounded-2xl overflow-hidden hover:border-brand-gold/40 transition-all duration-300 group hover:-translate-y-1 shadow-lg" data-category="appetizers">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80" 
+                             alt="Spicy Salmon Salad" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 left-3 bg-red-600/90 backdrop-blur-sm text-white text-[11px] font-medium px-2.5 py-1 rounded-full">
+                            รสจัดจ้าน
+                        </span>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start gap-2 mb-1.5">
+                            <h3 class="font-bold text-white text-base group-hover:text-brand-gold transition-colors">ยำแซลมอนแซ่บสไตล์ไทย</h3>
+                            <span class="text-brand-gold font-bold text-base whitespace-nowrap">฿180</span>
+                        </div>
+                        <div class="text-xs text-gray-400 font-jp mb-2">サーモン スパイシーサラダ (Spicy Salad)</div>
+                        <p class="text-xs text-gray-400 line-clamp-2 mb-4">เนื้อแซลมอนสดหั่นเต๋า คลุกเคล้าน้ำยำซีฟู้ดมะนาวแท้รสจัดจ้าน ผักสดกรอบ</p>
+                        <button onclick="openMenuModal('ยำแซลมอนแซ่บสไตล์ไทย', '฿180', 'サーモン スパイシーサラダ', 'เมนูยอดฮิตตัดเลี่ยน แซลมอนสดหั่นเต๋าชิ้นโต คลุกน้ำยำสมุนไพร พริกขี้หนูสวน และมะนาวสดแท้ รสเปรี้ยวเผ็ดกลมกล่อม', 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80')" class="w-full py-2 rounded-lg bg-white/5 hover:bg-brand-gold hover:text-black text-gray-300 text-xs font-medium transition-colors border border-white/10 flex items-center justify-center gap-1.5">
+                            <i class="fa-regular fa-eye"></i> ดูรายละเอียด
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Download Full Menu Notice -->
+            <div class="mt-14 p-6 rounded-2xl bg-gradient-to-r from-brand-card via-black/40 to-brand-card border border-brand-gold/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+                <div>
+                    <h4 class="text-white font-bold text-base">ต้องการดูเมนูอาหารทั้งหมดกว่า 80+ รายการ?</h4>
+                    <p class="text-gray-400 text-xs mt-1">สอบถามรายการเมนูประจำฤดูกาล หรือสอบถามเชฟได้ทันทีผ่าน LINE Official</p>
+                </div>
+                <a href="https://line.me" target="_blank" class="px-6 py-2.5 rounded-xl bg-[#06C755] hover:bg-[#05b34c] text-white text-xs font-semibold flex items-center gap-2 whitespace-nowrap shadow-md">
+                    <i class="fa-brands fa-line text-base"></i> ขอรับเมนูเต็มทาง LINE
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Story / Philosophy Section -->
+    <section id="about" class="py-20 bg-brand-dark border-t border-b border-white/5 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- Image Collage -->
+                <div class="relative">
+                    <div class="relative z-10 rounded-2xl overflow-hidden border border-brand-gold/30 shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=1000&q=80" 
+                             alt="Chef Crafting Sushi" 
+                             class="w-full h-80 sm:h-96 object-cover">
+                    </div>
+                    <!-- Sub photo badge -->
+                    <div class="absolute -bottom-6 -right-6 z-20 w-44 sm:w-56 rounded-xl overflow-hidden border-2 border-brand-gold shadow-2xl hidden sm:block">
+                        <img src="https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?auto=format&fit=crop&w=500&q=80" 
+                             alt="Fresh Fish Cut" 
+                             class="w-full h-32 object-cover">
+                    </div>
+                    <!-- Stamp Badge -->
+                    <div class="absolute -top-4 -left-4 z-20 w-20 h-20 rounded-full bg-brand-gold flex flex-col items-center justify-center text-black font-bold shadow-xl border-2 border-black">
+                        <span class="text-[10px] tracking-wider font-sans">FRESH</span>
+                        <span class="font-jp text-lg leading-none">鮮度</span>
+                        <span class="text-[8px] tracking-widest uppercase">DAILY</span>
+                    </div>
+                </div>
+
+                <!-- Text Content -->
+                <div class="lg:pl-6">
+                    <span class="text-brand-gold text-xs font-semibold tracking-widest uppercase">OUR PASSION & PHILOSOPHY</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white mt-1 mb-6 font-serif">
+                        ความประณีตในทุกคำ <br>
+                        <span class="text-gold-gradient">ความสุขในทุกมื้ออาหาร</span>
+                    </h2>
+                    
+                    <p class="text-gray-300 text-sm leading-relaxed mb-6 font-light">
+                        ที่ <strong class="text-white font-medium">HARU SUSHI BAR</strong> เราเชื่อว่าความอร่อยของซูชิเริ่มต้นจาก “ความสดใหม่ที่ไร้การประนีประนอม” เราคัดเลือกวัตถุดิบและเนื้อปลาเกรดซาชิมิจากแหล่งกำเนิดที่ดีที่สุด บินตรงมาถึงครัวของเราอย่างสม่ำเสมอ
+                    </p>
+
+                    <div class="space-y-4 text-xs sm:text-sm text-gray-400">
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center mt-0.5 flex-shrink-0">
+                                <i class="fa-solid fa-check text-xs"></i>
+                            </div>
+                            <div>
+                                <span class="text-white font-medium">ข้าวซูชิหมักน้ำส้มแดง (Akasu):</span> 
+                                สูตรเฉพาะที่บ่มนาน เพื่อให้ได้รสสัมผัสกลมกล่อม ไม่เปรี้ยวโดด ชูรสหวานธรรมชาติของเนื้อปลา
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center mt-0.5 flex-shrink-0">
+                                <i class="fa-solid fa-check text-xs"></i>
+                            </div>
+                            <div>
+                                <span class="text-white font-medium">วาซาบิสดแท้ & โชยุเคี่ยวเอง:</span> 
+                                วาซาบิสดบดธรรมชาติ กลิ่นหอมละมุนไม่ฉุนแสบจมูก พร้อมโชยุสูตรกลมกล่อมปรุงเอง
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center mt-0.5 flex-shrink-0">
+                                <i class="fa-solid fa-check text-xs"></i>
+                            </div>
+                            <div>
+                                <span class="text-white font-medium">เสิร์ฟความคุ้มค่าแบบ A la Carte:</span> 
+                                ให้คุณเลือกอิ่มอร่อยเฉพาะเมนูที่ชอบ จ่ายเฉพาะสิ่งที่คุณเลือกทาน ไม่ต้องกังวลเรื่องคอร์สราคาตายตัว
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 pt-6 border-t border-white/10 flex items-center gap-6">
+                        <div>
+                            <div class="text-2xl font-bold text-white font-serif">10+</div>
+                            <div class="text-[11px] text-gray-400">ปีประสบการณ์เชฟ</div>
+                        </div>
+                        <div class="h-8 w-px bg-white/10"></div>
+                        <div>
+                            <div class="text-2xl font-bold text-white font-serif">100%</div>
+                            <div class="text-[11px] text-gray-400">ความสดใหม่การันตี</div>
+                        </div>
+                        <div class="h-8 w-px bg-white/10"></div>
+                        <div>
+                            <div class="text-2xl font-bold text-white font-serif">4.9 ★</div>
+                            <div class="text-[11px] text-gray-400">คะแนนรีวิวจากลูกค้า</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery / Atmosphere Section -->
+    <section id="gallery" class="py-20 bg-[#16181e]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-brand-gold text-xs font-semibold tracking-widest uppercase">RESTAURANT AMBIENCE</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mt-1 mb-4 font-serif">บรรยากาศภายในร้าน</h2>
+                <p class="text-gray-400 text-sm">
+                    ตกแต่งสไตล์โมเดิร์นเจแปนนิส ผสานงานไม้ธรรมชาติอันอบอุ่น เหมาะสำหรับมื้อส่วนตัว ครอบครัว และเพื่อนฝูง
+                </p>
+                <div class="w-16 h-0.5 bg-brand-gold mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="relative h-64 rounded-xl overflow-hidden group shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" 
+                         alt="Dining Area" 
+                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
+                        <span class="text-white text-xs font-medium">โซนที่นั่งโต๊ะส่วนตัว (Private Table)</span>
+                    </div>
+                </div>
+
+                <div class="relative h-64 rounded-xl overflow-hidden group shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" 
+                         alt="Sushi Counter" 
+                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
+                        <span class="text-white text-xs font-medium">เคาน์เตอร์บาร์ชมเชฟปั้นสด (Sushi Bar)</span>
+                    </div>
+                </div>
+
+                <div class="relative h-64 rounded-xl overflow-hidden group shadow-lg sm:col-span-2 lg:col-span-1">
+                    <img src="https://images.unsplash.com/photo-1578474846511-04ba529f0b88?auto=format&fit=crop&w=800&q=80" 
+                         alt="Japanese Table Setting" 
+                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
+                        <span class="text-white text-xs font-medium">บรรยากาศแสงไฟอบอุ่น สบายตา</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Reservation Section (เน้น LINE OA และโทรศัพท์ตามโจทย์) -->
+    <section id="contact" class="py-20 bg-brand-dark wood-texture relative border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <span class="text-brand-gold text-xs font-semibold tracking-widest uppercase">GET IN TOUCH & RESERVATIONS</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mt-1 mb-4 font-serif">ติดต่อร้าน & สำรองที่นั่ง</h2>
+                <p class="text-gray-400 text-sm">
+                    สามารถติดต่อสอบถาม จองโต๊ะล่วงหน้า หรือสั่งอาหารกลับบ้านได้ผ่าน 2 ช่องทางหลักที่สะดวกที่สุด
+                </p>
+                <div class="w-16 h-0.5 bg-brand-gold mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                
+                <!-- Channel 1: LINE Official Account (ช่องทางหลักที่แนะนำ) -->
+                <div class="bg-gradient-to-br from-brand-card to-[#121c15] border border-[#06C755]/30 rounded-3xl p-8 relative overflow-hidden shadow-2xl flex flex-col justify-between">
+                    <div class="absolute -top-12 -right-12 w-40 h-40 bg-[#06C755]/10 rounded-full blur-2xl"></div>
+                    
+                    <div>
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#06C755]/20 text-[#06C755] text-xs font-semibold mb-4 border border-[#06C755]/30">
+                            <i class="fa-brands fa-line text-sm"></i> ช่องทางที่สะดวกและรวดเร็วที่สุด
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">LINE Official Account</h3>
+                        <p class="text-gray-300 text-xs sm:text-sm leading-relaxed mb-6 font-light">
+                            แอดไลน์เพื่อจองโต๊ะล่วงหน้า สอบถามเมนูปลาสดประจำวัน สั่งอาหาร Takeaway หรือรับโปรโมชั่นพิเศษเฉพาะสมาชิก
+                        </p>
+
+                        <!-- Line Details Box -->
+                        <div class="bg-black/40 rounded-2xl p-4 border border-white/10 flex items-center justify-between gap-4 mb-6">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 rounded-xl bg-[#06C755] flex items-center justify-center text-white text-2xl shadow-md">
+                                    <i class="fa-brands fa-line"></i>
+                                </div>
+                                <div>
+                                    <div class="text-[11px] text-gray-400">LINE ID</div>
+                                    <div class="text-white font-bold text-lg tracking-wider">@harusushi</div>
+                                </div>
+                            </div>
+                            <span class="text-xs text-gray-400 hidden sm:inline">(มีแอดมินตอบ 10:00 - 22:00 น.)</span>
+                        </div>
+                    </div>
+
+                    <a href="https://line.me" target="_blank" class="w-full py-4 rounded-xl bg-[#06C755] hover:bg-[#05b34c] text-white font-semibold text-center text-sm transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-[#06C755]/30 transform hover:-translate-y-0.5">
+                        <i class="fa-brands fa-line text-xl"></i> แอดไลน์พูดคุย / จองโต๊ะทันที
+                    </a>
+                </div>
+
+                <!-- Channel 2: Phone Call Direct -->
+                <div class="bg-gradient-to-br from-brand-card to-[#1d1b14] border border-brand-gold/30 rounded-3xl p-8 relative overflow-hidden shadow-2xl flex flex-col justify-between">
+                    <div class="absolute -top-12 -right-12 w-40 h-40 bg-brand-gold/10 rounded-full blur-2xl"></div>
+
+                    <div>
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-gold/20 text-brand-gold text-xs font-semibold mb-4 border border-brand-gold/30">
+                            <i class="fa-solid fa-phone text-xs"></i> สายด่วนหน้าร้าน
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">โทรติดต่อโดยตรง</h3>
+                        <p class="text-gray-300 text-xs sm:text-sm leading-relaxed mb-6 font-light">
+                            สำหรับลูกค้าที่ต้องการเช็กคิวโต๊ะว่างหน้าร้านทันที สั่งอาหารด่วน หรือสอบถามเส้นทางจอดรถ
+                        </p>
+
+                        <!-- Phone Details Box -->
+                        <div class="bg-black/40 rounded-2xl p-4 border border-white/10 flex items-center justify-between gap-4 mb-6">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 rounded-xl bg-brand-gold flex items-center justify-center text-black text-2xl shadow-md">
+                                    <i class="fa-solid fa-phone-volume"></i>
+                                </div>
+                                <div>
+                                    <div class="text-[11px] text-gray-400">เบอร์โทรศัพท์ร้าน</div>
+                                    <div class="text-white font-bold text-lg tracking-wider">082-345-6789</div>
+                                </div>
+                            </div>
+                            <span class="text-xs text-gray-400 hidden sm:inline">กดโทรออกได้ทันที</span>
+                        </div>
+                    </div>
+
+                    <a href="tel:0823456789" class="w-full py-4 rounded-xl bg-brand-gold hover:bg-brand-goldHover text-black font-semibold text-center text-sm transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-brand-gold/30 transform hover:-translate-y-0.5">
+                        <i class="fa-solid fa-phone"></i> กดโทรออก: 082-345-6789
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- Location & Opening Hours Card -->
+            <div class="bg-brand-card border border-white/10 rounded-3xl p-6 sm:p-8 grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                
+                <!-- Hours -->
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-brand-gold text-xl flex-shrink-0">
+                        <i class="fa-regular fa-clock"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-semibold text-sm mb-1">เวลาเปิดให้บริการ</h4>
+                        <div class="text-xs text-gray-400 space-y-1">
+                            <div><strong class="text-gray-300">จันทร์ - ศุกร์:</strong> 11:30 - 14:30 น. และ 17:00 - 22:00 น.</div>
+                            <div><strong class="text-gray-300">เสาร์ - อาทิตย์:</strong> 11:30 - 22:00 น. (เปิดต่อเนื่องทั้งวัน)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Location Address -->
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-brand-gold text-xl flex-shrink-0">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-semibold text-sm mb-1">ที่ตั้งของร้าน</h4>
+                        <p class="text-xs text-gray-400 leading-relaxed">
+                            128 ถนนสุขุมวิท ซอย 55 (ทองหล่อ), แขวงคลองตันเหนือ, เขตวัฒนา, กรุงเทพมหานคร 10110
+                            <span class="block text-brand-gold mt-1"><i class="fa-solid fa-square-parking"></i> มีที่จอดรถสะดวกสบายหน้าร้าน</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Google Map Preview Link -->
+                <div class="text-center md:text-right">
+                    <a href="https://maps.google.com" target="_blank" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/15 text-white text-xs font-medium transition-all">
+                        <i class="fa-solid fa-map-location-dot text-brand-gold"></i>
+                        <span>เปิดแผนที่ Google Maps นำทาง</span>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-10 border-t border-white/5 text-gray-500 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+                <span class="font-jp text-brand-gold font-bold text-base">春</span>
+                <span class="text-white font-serif font-bold text-sm">HARU SUSHI BAR</span>
+                <span class="text-gray-600">|</span>
+                <span>© 2026 HARU SUSHI BAR. All Rights Reserved. (Mock-up Preview)</span>
+            </div>
+            <div class="flex items-center gap-6">
+                <a href="#home" class="hover:text-gray-300">กลับขึ้นด้านบน</a>
+                <a href="https://line.me" target="_blank" class="hover:text-[#06C755]"><i class="fa-brands fa-line text-base"></i></a>
+                <a href="tel:0823456789" class="hover:text-brand-gold"><i class="fa-solid fa-phone"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Action Buttons (Sticky for Mobile Users) -->
+    <div class="fixed bottom-5 right-5 z-50 flex flex-col gap-3">
+        <!-- Call Button -->
+        <a href="tel:0823456789" title="โทรสอบถามร้าน" class="w-12 h-12 rounded-full bg-brand-gold text-black flex items-center justify-center text-lg shadow-xl hover:scale-110 active:scale-95 transition-transform duration-200 border-2 border-white/20">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+        <!-- LINE Button -->
+        <a href="https://line.me" target="_blank" title="แชต LINE OA" class="w-14 h-14 rounded-full bg-[#06C755] text-white flex items-center justify-center text-2xl shadow-xl hover:scale-110 active:scale-95 transition-transform duration-200 border-2 border-white/30 animate-bounce">
+            <i class="fa-brands fa-line"></i>
+        </a>
+    </div>
+
+    <!-- Dish Detail Modal -->
+    <div id="dish-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-brand-card border border-white/10 rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl relative animate-in fade-in zoom-in duration-200">
+            <!-- Close Button -->
+            <button onclick="closeMenuModal()" class="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-black/60 text-white hover:text-brand-gold flex items-center justify-center transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <!-- Modal Image -->
+            <div class="h-56 relative overflow-hidden">
+                <img id="modal-img" src="" alt="Dish Preview" class="w-full h-full object-cover">
+            </div>
+
+            <!-- Modal Content -->
+            <div class="p-6">
+                <div class="flex justify-between items-start gap-4 mb-2">
+                    <div>
+                        <h3 id="modal-title" class="text-xl font-bold text-white"></h3>
+                        <div id="modal-jp" class="text-xs text-brand-gold font-jp"></div>
+                    </div>
+                    <span id="modal-price" class="text-xl font-bold text-brand-gold"></span>
+                </div>
+                
+                <p id="modal-desc" class="text-gray-300 text-xs sm:text-sm leading-relaxed mb-6 font-light mt-4"></p>
+
+                <div class="pt-4 border-t border-white/10 flex items-center gap-3">
+                    <a href="https://line.me" target="_blank" class="flex-1 py-3 rounded-xl bg-[#06C755] hover:bg-[#05b34c] text-white text-center text-xs font-semibold flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-line text-base"></i> สั่งเมนูนี้ทาง LINE
+                    </a>
+                    <button onclick="closeMenuModal()" class="px-5 py-3 rounded-xl bg-white/10 hover:bg-white/15 text-gray-300 text-xs font-medium">
+                        ปิด
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Interactive Functionality -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Category Filter Tabs
+        const tabs = document.querySelectorAll('.menu-tab');
+        const items = document.querySelectorAll('.menu-item');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Update active tab styling
+                tabs.forEach(t => {
+                    t.classList.remove('active', 'bg-brand-gold', 'text-black', 'font-semibold', 'border-brand-gold');
+                    t.classList.add('bg-brand-card', 'text-gray-300', 'border-gray-700');
+                });
+                tab.classList.add('active', 'bg-brand-gold', 'text-black', 'font-semibold', 'border-brand-gold');
+                tab.classList.remove('bg-brand-card', 'text-gray-300', 'border-gray-700');
+
+                const filterCategory = tab.getAttribute('data-category');
+
+                // Filter items
+                items.forEach(item => {
+                    if (filterCategory === 'all' || item.getAttribute('data-category') === filterCategory) {
+                        item.classList.remove('hidden');
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        // Modal Logic
+        const modal = document.getElementById('dish-modal');
+        const modalImg = document.getElementById('modal-img');
+        const modalTitle = document.getElementById('modal-title');
+        const modalJp = document.getElementById('modal-jp');
+        const modalPrice = document.getElementById('modal-price');
+        const modalDesc = document.getElementById('modal-desc');
+
+        function openMenuModal(title, price, jp, desc, img) {
+            modalTitle.textContent = title;
+            modalPrice.textContent = price;
+            modalJp.textContent = jp;
+            modalDesc.textContent = desc;
+            modalImg.src = img;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMenuModal() {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        }
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeMenuModal();
+            }
+        });
+    </script>
+</body>
+</html>
